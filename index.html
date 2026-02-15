@@ -2,128 +2,641 @@
 <html lang="en">
  <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>💐 Bouquet of Love - Your Custom Masterpiece</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>💐 Bouquet of Love - Your Dream Come True</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     html, body {
-      width: 100%; height: 100%;
-      font-family: 'Georgia', serif;
-      background: linear-gradient(135deg, #fff0f5 0%, #ffe4e1 100%);
+      width: 100%;
+      height: 100%;
+      font-family: 'Georgia', 'Playfair Display', serif;
+      background: linear-gradient(135deg, #fff0f5 0%, #ffe4e1 50%, #fff5ee 100%);
       overflow-x: hidden;
     }
-    .container { width: 100%; min-height: 100vh; display: flex; flex-direction: column; padding: 20px; }
-    .page { display: none; width: 100%; animation: fadeIn 0.6s ease-in; }
+
+    body { font-size: 16px; }
+
+    .container {
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+    }
+
+    .page {
+      display: none;
+      width: 100%;
+      animation: fadeIn 0.6s ease-in;
+    }
+
     .page.active { display: block; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-    /* Home Styling */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     .home-page {
-      text-align: center; padding: 60px 30px; background: white;
-      border-radius: 30px; margin: 40px auto; max-width: 700px;
-      box-shadow: 0 20px 60px rgba(255, 105, 180, 0.2);
+      text-align: center;
+      padding: 60px 30px;
+      background: linear-gradient(135deg, #fff9f7 0%, #ffe4d6 100%);
+      border-radius: 30px;
+      margin: 80px auto;
+      max-width: 700px;
+      box-shadow: 0 20px 60px rgba(255, 105, 180, 0.25);
+      border: 2px solid rgba(255, 192, 203, 0.3);
     }
-    .home-page h1 { font-size: 3em; color: #d41f5b; margin-bottom: 15px; }
+
+    .home-page h1 {
+      font-size: 3.5em;
+      background: linear-gradient(135deg, #d41f5b 0%, #ff69b4 50%, #d41f5b 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+
+    .home-page .subtitle {
+      font-size: 1.3em;
+      color: #c2185b;
+      margin-bottom: 10px;
+      font-style: italic;
+      font-weight: 300;
+    }
+
+    .home-page p {
+      font-size: 1.1em;
+      color: #666;
+      margin-bottom: 40px;
+      line-height: 1.8;
+    }
+
     .heart-btn {
-      background: #ff1493; color: white; font-size: 2.5em; border-radius: 50%;
-      width: 100px; height: 100px; margin: 30px auto; border: none;
-      cursor: pointer; animation: heartBeat 1.5s infinite;
-      display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, #ff1493 0%, #d41f5b 100%);
+      color: white;
+      border: none;
+      font-size: 2.5em;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      box-shadow: 0 10px 40px rgba(255, 20, 147, 0.4);
+      font-weight: bold;
+      width: 100px;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 30px auto;
+      animation: heartBeat 1.5s ease-in-out infinite;
     }
-    @keyframes heartBeat { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
 
-    /* Selection Grid */
-    .flower-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 15px; }
+    @keyframes heartBeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    .heart-btn:hover {
+      transform: scale(1.15);
+      box-shadow: 0 15px 50px rgba(255, 20, 147, 0.6);
+      animation: none;
+    }
+
+    header {
+      text-align: center;
+      padding: 25px;
+      background: linear-gradient(135deg, #ff1493 0%, #d41f5b 100%);
+      color: white;
+      border-radius: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 30px rgba(255, 20, 147, 0.3);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+      font-weight: bold;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    header p {
+      margin: 8px 0 0 0;
+      opacity: 0.95;
+      font-size: 1.1em;
+    }
+
+    .page-title {
+      font-size: 2.8em;
+      background: linear-gradient(135deg, #d41f5b 0%, #ff69b4 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-align: center;
+      margin-bottom: 40px;
+      font-weight: bold;
+    }
+
+    .bouquet-type-page, .flower-page, .wrapping-page, .preview-page {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 30px;
+    }
+
+    .type-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+      margin-bottom: 30px;
+    }
+
+    .type-card {
+      background: linear-gradient(135deg, #fff9f7 0%, #ffe4d6 100%);
+      border-radius: 20px;
+      padding: 35px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+      border: 2px solid rgba(255, 192, 203, 0.4);
+    }
+
+    .type-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 50px rgba(255, 20, 147, 0.3);
+      border-color: #ff1493;
+      background: linear-gradient(135deg, #fff0f5 0%, #ffd1dc 100%);
+    }
+
+    .type-card h3 {
+      color: #d41f5b;
+      margin-bottom: 15px;
+      font-size: 1.4em;
+      font-weight: bold;
+    }
+
+    .type-card p {
+      color: #666;
+      font-size: 1em;
+      line-height: 1.6;
+    }
+
+    .flower-counter {
+      text-align: center;
+      font-size: 1.3em;
+      color: #d41f5b;
+      margin-bottom: 30px;
+      font-weight: bold;
+      font-style: italic;
+    }
+
+    .flower-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
     .flower-card {
-      background: white; padding: 15px; border-radius: 15px; text-align: center;
-      cursor: pointer; transition: 0.3s; border: 3px solid transparent;
+      background: linear-gradient(135deg, #fff9f7 0%, #ffe4d6 100%);
+      border-radius: 18px;
+      padding: 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      border: 3px solid transparent;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+      position: relative;
     }
-    .flower-card.selected { border-color: #ff1493; background: #fff0f5; }
-    .flower-emoji { font-size: 50px; }
 
-    /* Results Preview Logic */
+    .flower-card:hover {
+      transform: scale(1.08);
+      border-color: #ff1493;
+      box-shadow: 0 10px 35px rgba(255, 20, 147, 0.3);
+      background: linear-gradient(135deg, #fff0f5 0%, #ffd1dc 100%);
+    }
+
+    .flower-card.selected {
+      border-color: #ff1493;
+      background: linear-gradient(135deg, #fff0f5 0%, #ffc0cb 100%);
+      box-shadow: 0 10px 35px rgba(255, 20, 147, 0.4);
+    }
+
+    .flower-card.selected::after {
+      content: '💕';
+      position: absolute;
+      top: -10px;
+      right: 10px;
+      font-size: 1.5em;
+      animation: bounce 0.6s ease-out;
+    }
+
+    @keyframes bounce {
+      0% { transform: translateY(-20px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    .flower-emoji {
+      font-size: 90px;
+      line-height: 1;
+      margin-bottom: 8px;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    }
+
+    .flower-card h4 {
+      color: #d41f5b;
+      font-size: 1.05em;
+      margin-bottom: 6px;
+      font-weight: bold;
+    }
+
+    .flower-meaning {
+      color: #999;
+      font-size: 0.8em;
+      line-height: 1.5;
+      max-height: 70px;
+      overflow-y: auto;
+      font-style: italic;
+    }
+
+    .section {
+      background: linear-gradient(135deg, #fff9f7 0%, #ffe4d6 100%);
+      border-radius: 20px;
+      padding: 35px;
+      margin-bottom: 30px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+      border: 2px solid rgba(255, 192, 203, 0.3);
+    }
+
+    .section h2 {
+      color: #d41f5b;
+      margin-bottom: 25px;
+      font-size: 1.6em;
+      font-weight: bold;
+    }
+
+    .option-group {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 15px;
+    }
+
+    .option-btn {
+      background: white;
+      border: 2px solid #ddd;
+      border-radius: 12px;
+      padding: 18px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 1em;
+      font-weight: 500;
+      color: #666;
+    }
+
+    .option-btn:hover {
+      border-color: #ff1493;
+      background: #fff0f5;
+      transform: translateY(-3px);
+    }
+
+    .option-btn.active {
+      background: linear-gradient(135deg, #ff1493 0%, #d41f5b 100%);
+      color: white;
+      border-color: #ff1493;
+      box-shadow: 0 8px 20px rgba(255, 20, 147, 0.3);
+    }
+
+    .preview-container {
+      background: linear-gradient(135deg, #fff9f7 0%, #ffe4d6 100%);
+      border-radius: 25px;
+      padding: 50px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+      margin-bottom: 30px;
+      border: 2px solid rgba(255, 192, 203, 0.3);
+    }
+
     .bouquet-display {
-      width: 100%; height: 650px; display: flex; align-items: center;
-      justify-content: center; position: relative; overflow: hidden;
-      background: white; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    }
-    #bouquet-capture-area { 
-        position: relative; width: 400px; height: 550px; 
-        background: white; padding: 40px;
-    }
-    .stem-group { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 5; }
-    .stem {
-      position: absolute; width: 3px; background: #3a6b1f;
-      transform-origin: bottom center; bottom: 100px; left: 50%;
-    }
-    .flower-in-bouquet {
-      position: absolute; width: 100px; height: 100px; font-size: 80px;
-      display: flex; align-items: center; justify-content: center; z-index: 10;
-      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
-    }
-    .ribbon-bow {
-      position: absolute; bottom: 85px; left: 50%; transform: translateX(-50%);
-      font-size: 60px; z-index: 20;
+      width: 100%;
+      height: 700px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 40px;
+      background: linear-gradient(135deg, #fff5f7 0%, #ffe0ec 100%);
+      border-radius: 20px;
+      position: relative;
+      overflow: hidden;
     }
 
-    .nav-btn {
-      padding: 15px 30px; background: #d41f5b; color: white; border-radius: 25px;
-      border: none; cursor: pointer; font-weight: bold; margin: 10px; transition: 0.3s;
+    .bouquet-wrapper {
+      position: relative;
+      width: 400px;
+      height: 600px;
     }
-    .nav-btn:active { transform: scale(0.95); }
-    
+
+    .stem-group {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 5;
+    }
+
+    .stem {
+      position: absolute;
+      width: 4px;
+      background: linear-gradient(180deg, #2d5016 0%, #3a6b1f 70%, #1a300d 100%);
+      transform-origin: bottom center;
+      bottom: 100px; /* Gathered Point */
+      left: 50%;
+      border-radius: 2px;
+    }
+
+    .flower-in-bouquet {
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 90px;
+      filter: drop-shadow(0 6px 15px rgba(0, 0, 0, 0.3));
+      z-index: 10;
+      transition: all 0.5s ease;
+    }
+
+    /* Ribbon / Bow Styling */
+    .ribbon-bow {
+      position: absolute;
+      bottom: 85px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 60px;
+      z-index: 1001;
+    }
+
+    .bow-center {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background: linear-gradient(135deg, #ff69b4 0%, #d41f5b 100%);
+      border-radius: 50%;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+    }
+
+    .bow-left {
+      position: absolute;
+      width: 55px;
+      height: 45px;
+      background: linear-gradient(135deg, #ff69b4 0%, #d41f5b 100%);
+      border-radius: 50% 20% 20% 50%;
+      left: -20px;
+      top: 8px;
+      box-shadow: -3px 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .bow-right {
+      position: absolute;
+      width: 55px;
+      height: 45px;
+      background: linear-gradient(225deg, #ff69b4 0%, #d41f5b 100%);
+      border-radius: 20% 50% 50% 20%;
+      right: -20px;
+      top: 8px;
+      box-shadow: 3px 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .preview-details {
+      background: linear-gradient(135deg, #fff0f5 0%, #ffe4e1 100%);
+      border-radius: 15px;
+      padding: 30px;
+      margin-bottom: 25px;
+      border-left: 5px solid #ff1493;
+    }
+
+    .detail-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 15px 0;
+      border-bottom: 1px solid rgba(255, 20, 147, 0.1);
+      font-size: 1em;
+      color: #333;
+    }
+
+    .detail-row:last-child { border-bottom: none; }
+
+    .detail-row strong {
+      color: #d41f5b;
+      font-weight: bold;
+    }
+
+    .letter-section {
+      background: linear-gradient(135deg, #fff0f5 0%, #ffe4e1 100%);
+      border-radius: 15px;
+      padding: 30px;
+      margin-top: 25px;
+      border: 2px solid rgba(255, 192, 203, 0.4);
+    }
+
+    .letter-section h3 {
+      color: #d41f5b;
+      margin-bottom: 15px;
+      font-size: 1.3em;
+      font-weight: bold;
+    }
+
     .letter-textarea {
-      width: 100%; max-width: 600px; padding: 15px; border-radius: 15px;
-      border: 2px solid #ffd1dc; margin: 20px auto; display: block; font-family: inherit;
+      width: 100%;
+      border: 2px solid rgba(255, 192, 203, 0.5);
+      border-radius: 12px;
+      padding: 18px;
+      font-family: 'Georgia', serif;
+      font-size: 1em;
+      resize: vertical;
+      min-height: 140px;
+      margin-top: 12px;
+      transition: all 0.3s ease;
+      background: white;
+      color: #333;
     }
-    .status-toast {
-      background: rgba(0,0,0,0.8); color: white; padding: 12px 24px; border-radius: 50px;
-      position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
-      display: none; z-index: 9999; font-weight: bold;
+
+    .action-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+
+    .action-btn, .nav-btn {
+      background: linear-gradient(135deg, #ff1493 0%, #d41f5b 100%);
+      color: white;
+      border: none;
+      padding: 16px 40px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 1.05em;
+      font-weight: bold;
+      transition: all 0.4s ease;
+      box-shadow: 0 8px 25px rgba(255, 20, 147, 0.3);
+    }
+
+    .back-btn {
+      background: linear-gradient(135deg, #b0b0b0 0%, #8b8b8b 100%);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+
+    .success-message {
+      background: linear-gradient(135deg, #ffebee 0%, #fff0f5 100%);
+      border: 3px solid #ff1493;
+      border-radius: 15px;
+      padding: 25px;
+      text-align: center;
+      margin: 25px 0;
+      display: none;
+      animation: slideDown 0.5s ease;
+      box-shadow: 0 10px 30px rgba(255, 20, 147, 0.2);
+    }
+
+    .success-message.show { display: block; }
+
+    @media (max-width: 768px) {
+      .home-page { padding: 40px 20px; margin: 40px auto; }
+      .home-page h1 { font-size: 2.5em; }
+      .bouquet-display { height: 550px; }
+      .bouquet-wrapper { width: 300px; height: 500px; }
+      .preview-container { padding: 25px; }
+      .action-buttons { flex-direction: column; }
     }
   </style>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
  </head>
  <body>
-  <div id="status-toast" class="status-toast"></div>
-
   <div class="container">
-    <div class="page active" id="home-page">
-      <div class="home-page">
-        <h1>💐 Bouquet of Love 💐</h1>
-        <p>Design a stunning arrangement and share the photo with your beloved.</p>
-        <button class="heart-btn" onclick="goToPage('flower-page')">❤️</button>
-      </div>
+   <header>
+    <h1>💐 Bouquet of Love</h1>
+    <p>✨ Express Your Heart Through Flowers ✨</p>
+   </header>
+   
+   <div class="page active" id="home-page">
+    <div class="home-page">
+     <h1>💕 Create Your Perfect Bouquet 💕</h1>
+     <p class="subtitle">Let every flower speak what your heart feels</p>
+     <p>Design a stunning bouquet filled with flowers that carry the deepest meanings of love, care, and affection. Every flower tells a story.</p>
+     <button class="heart-btn" onclick="goToPage('bouquet-type-page')">❤️</button>
+     <p style="font-size: 0.95em; color: #c2185b; font-style: italic;">Click with love to begin your journey...</p>
     </div>
+   </div>
 
-    <div class="page" id="flower-page">
-      <h2 style="text-align:center; color:#d41f5b; margin:20px;">Pick Your Flowers (Max 10)</h2>
-      <div class="flower-grid" id="flower-grid"></div>
-      <div style="text-align:center; margin-top:30px;">
-        <button class="nav-btn" onclick="goToPage('preview-page')">Create Bouquet ✨</button>
-      </div>
+   <div class="page" id="bouquet-type-page">
+    <h2 class="page-title">Choose Your Bouquet Style 🌹</h2>
+    <div class="type-grid">
+     <div class="type-card" onclick="selectBouquetType('round')">
+      <h3>🎀 Round Bouquet</h3>
+      <p>Classic perfection. A full, rounded arrangement of your favorite blooms.</p>
+     </div>
+     <div class="type-card" onclick="selectBouquetType('cascade')">
+      <h3>💫 Cascade Bouquet</h3>
+      <p>Dramatic elegance. Flowers flowing gracefully downward.</p>
+     </div>
+     <div class="type-card" onclick="selectBouquetType('hand-tied')">
+      <h3>🌿 Hand-Tied Bouquet</h3>
+      <p>Artfully natural. A garden romance with organic beauty.</p>
+     </div>
+     <div class="type-card" onclick="selectBouquetType('single')">
+      <h3>🌟 Single Statement</h3>
+      <p>Pure focus. One magnificent bloom highlighted perfectly.</p>
+     </div>
+     <div class="type-card" onclick="selectBouquetType('mixed')">
+      <h3>🎨 Mixed Garden</h3>
+      <p>Multi-colored passion. Stunning depth and variety.</p>
+     </div>
     </div>
+   </div>
 
-    <div class="page" id="preview-page">
-      <h2 style="text-align:center; color:#d41f5b; margin:20px;">Your Custom Bouquet 🎀</h2>
-      <div class="bouquet-display">
-        <div id="bouquet-capture-area">
-          <div id="bouquet-canvas"></div>
-          <div class="ribbon-bow">🎀</div>
-        </div>
-      </div>
-      
-      <div style="text-align:center;">
-        <textarea id="personal-letter" class="letter-textarea" placeholder="Add a sweet caption..."></textarea>
-        <button class="nav-btn" style="background:#4CAF50;" onclick="shareAsPhoto()">💝 Share Photo to Chat</button>
-        <button class="nav-btn" style="background:#666;" onclick="goToPage('flower-page')">🔄 Edit</button>
-      </div>
+   <div class="page" id="flower-page">
+    <h2 class="page-title">Select Your Flowers 💖 (Max 10)</h2>
+    <div class="flower-counter">
+      ✨ <span id="flower-count">0</span> / 10 flowers chosen ✨
     </div>
+    <div class="flower-grid" id="flower-grid"></div>
+    <div class="nav-buttons">
+      <button class="nav-btn back-btn" onclick="goToPage('bouquet-type-page')">← Back</button> 
+      <button class="nav-btn" id="next-btn" onclick="goToPage('wrapping-page')" disabled>Next →</button>
+    </div>
+   </div>
+
+   <div class="page" id="wrapping-page">
+    <h2 class="page-title">Final Touches 🎀</h2>
+    <div class="section">
+     <h2>Paper Wrapping Style</h2>
+     <div class="option-group" id="wrapping-options"></div>
+    </div>
+    <div class="section">
+     <h2>Ribbon Bow Style</h2>
+     <div class="option-group" id="bow-options"></div>
+    </div>
+    <div class="nav-buttons">
+      <button class="nav-btn back-btn" onclick="goToPage('flower-page')">← Back</button> 
+      <button class="nav-btn" onclick="goToPage('preview-page')">Next →</button>
+    </div>
+   </div>
+
+   <div class="page" id="preview-page">
+    <h2 class="page-title">Your Masterpiece 💐</h2>
+    <div class="preview-container">
+     <div class="bouquet-display">
+      <div class="bouquet-wrapper" id="bouquet-wrapper"></div>
+     </div>
+     <div class="preview-details">
+      <div class="detail-row"><strong>💐 Style:</strong> <span id="preview-type"></span></div>
+      <div class="detail-row"><strong>🌹 Flowers:</strong> <span id="preview-flowers"></span></div>
+      <div class="detail-row"><strong>📦 Wrap:</strong> <span id="preview-wrapping"></span></div>
+      <div class="detail-row"><strong>🎀 Bow:</strong> <span id="preview-bow"></span></div>
+     </div>
+     <div class="letter-section">
+      <h3>💌 Add Your Love Letter</h3>
+      <textarea id="personal-letter" class="letter-textarea" placeholder="Dear my love..."></textarea>
+     </div>
+     <div class="action-buttons">
+       <button class="action-btn" style="background:#2196F3" onclick="downloadBouquet()">📥 Download Card</button> 
+       <button class="action-btn" style="background:#4CAF50" onclick="shareBouquet()">💝 Send Message</button> 
+       <button class="action-btn" onclick="goToPage('home-page')">✨ New Bouquet</button>
+     </div>
+     <div class="success-message" id="success-msg">
+      <h3>💕 Success! 💕</h3>
+      <p id="success-text"></p>
+     </div>
+    </div>
+    <div class="nav-buttons">
+      <button class="nav-btn back-btn" onclick="goToPage('wrapping-page')">← Back</button>
+    </div>
+   </div>
   </div>
 
   <script>
-    const flowers = [
-      { name: 'Red Rose', meaning: 'Deep passionate love that burns forever', emoji: '🌹' },
+  const flowers = [
+    
+    { name: 'Red Rose', meaning: 'Deep passionate love that burns forever', emoji: '🌹' },
     { name: 'Pink Rose', meaning: 'Admiration, grace, and gentle affection', emoji: '🌸' },
     { name: 'White Rose', meaning: 'Pure, honest, and eternal love', emoji: '🤍' },
     { name: 'Red Tulip', meaning: 'Bold declaration: I choose you forever', emoji: '🌷' },
@@ -146,7 +659,7 @@
     { name: 'Sweet Pea', meaning: 'Joy and delicate pleasures', emoji: '🌸' },
     { name: 'Iris', meaning: 'Trust, faith, and eternal hope', emoji: '💜' },
     { name: 'Hibiscus', meaning: 'Exotic beauty and tropical passion', emoji: '🌺' },
-    { name: 'Lotus', meaning: 'Love rising above all challenges', emoji: '🌸' },
+    { name: 'Lotus', meaning: 'Love rising above all challenges', emoji: '🪷' },
     { name: 'Freesia', meaning: 'Trust and emotional honesty', emoji: '🌼' },
     { name: 'Azalea', meaning: 'Passion with gentle grace', emoji: '🌸' },
     { name: 'Bluebell', meaning: 'Constancy and eternal devotion', emoji: '💙' },
@@ -164,7 +677,7 @@
     { name: 'Lilac', meaning: 'First feelings of love awakening', emoji: '💜' },
     { name: 'Tuberose', meaning: 'Deeply intoxicating love', emoji: '🌸' },
     { name: 'Stock Flower', meaning: 'Lasting beauty and bonds', emoji: '🌹' },
-    { name: 'Hyacinth', meaning: 'Sincerity and steadfast love', emoji: '💗' },
+    { name: 'Hyacinth', meaning: 'Sincerity and steadfast love', emoji: '🪻' },
     { name: 'Heliotrope', meaning: 'Faithful and devoted love', emoji: '💜' },
     { name: 'Sweet William', meaning: 'Gallantry and admiration', emoji: '🌹' },
     { name: 'Anemone', meaning: 'Vulnerable, hopeful love', emoji: '🌸' },
@@ -173,128 +686,147 @@
     { name: 'Gladiolus', meaning: 'Strength and character', emoji: '💪' },
     { name: 'Celosia', meaning: 'Passion and warmth', emoji: '🔥' },
     { name: 'Lisianthus', meaning: 'Gratitude and appreciation', emoji: '🌸' }
-    ];
 
-    let selectedFlowers = [];
+  ];
 
-    function goToPage(id) {
-      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
-      if (id === 'flower-page') renderFlowerGrid();
-      if (id === 'preview-page') renderBouquet();
-      window.scrollTo(0,0);
+  const wrappings = [
+    { name: 'Kraft Paper' }, { name: 'Rose Gold' }, { name: 'Ivory Lace' }, { name: 'Burgundy Satin' }
+  ];
+
+  const bows = [
+    'Romantic Ribbon', 'Silk Luxe', 'Velvet Rose', 'Satin Heart', 'Golden Glamour'
+  ];
+
+  let selectedBouquetType = '';
+  let selectedFlowers = [];
+  let selectedWrapping = '';
+  let selectedBow = '';
+
+  function goToPage(pageId) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(pageId).classList.add('active');
+    if (pageId === 'flower-page') renderFlowers();
+    if (pageId === 'wrapping-page') renderWrappingOptions();
+    if (pageId === 'preview-page') renderPreview();
+    window.scrollTo(0, 0);
+  }
+
+  function selectBouquetType(type) {
+    selectedBouquetType = type;
+    goToPage('flower-page');
+  }
+
+  function renderFlowers() {
+    const grid = document.getElementById('flower-grid');
+    grid.innerHTML = flowers.map((f, i) => `
+      <div class="flower-card ${selectedFlowers.includes(i) ? 'selected' : ''}" onclick="toggleFlower(${i}, this)">
+        <div class="flower-emoji">${f.emoji}</div>
+        <h4>${f.name}</h4>
+        <p class="flower-meaning">${f.meaning}</p>
+      </div>
+    `).join('');
+  }
+
+  function toggleFlower(index, el) {
+    if (selectedFlowers.includes(index)) {
+      selectedFlowers = selectedFlowers.filter(i => i !== index);
+      el.classList.remove('selected');
+    } else if (selectedFlowers.length < 10) {
+      selectedFlowers.push(index);
+      el.classList.add('selected');
+    }
+    document.getElementById('flower-count').textContent = selectedFlowers.length;
+    document.getElementById('next-btn').disabled = selectedFlowers.length === 0;
+  }
+
+  function renderWrappingOptions() {
+    document.getElementById('wrapping-options').innerHTML = wrappings.map(w => `
+      <button class="option-btn ${selectedWrapping === w.name ? 'active' : ''}" onclick="selectedWrapping='${w.name}';renderWrappingOptions()">${w.name}</button>
+    `).join('');
+    document.getElementById('bow-options').innerHTML = bows.map(b => `
+      <button class="option-btn ${selectedBow === b ? 'active' : ''}" onclick="selectedBow='${b}';renderWrappingOptions()">${b}</button>
+    `).join('');
+  }
+
+  // UPDATED RENDER LOGIC: Fijau (Spread) and Ekai Thau Ma (Gathered Stems)
+  function renderPreview() {
+    const wrapper = document.getElementById('bouquet-wrapper');
+    wrapper.innerHTML = '';
+    
+    const count = selectedFlowers.length;
+    const centerX = 200;
+    const bottomY = 500; // The single point where all stems meet
+
+    const stemGroup = document.createElement('div');
+    stemGroup.className = 'stem-group';
+
+    selectedFlowers.forEach((flowerIdx, i) => {
+      const flower = flowers[flowerIdx];
+      
+      // Calculate spread angle (Fijau)
+      // Spreads from -60 degrees to +60 degrees
+      const angleRange = 120; 
+      const startAngle = -60;
+      const angle = (count > 1) 
+        ? startAngle + (i * (angleRange / (count - 1))) 
+        : 0;
+
+      const radian = (angle - 90) * (Math.PI / 180);
+      const radius = 280 + (i % 2 * 30); // Slight variation in height for natural look
+
+      // Flower Position
+      const fx = centerX + Math.cos(radian) * radius;
+      const fy = bottomY + Math.sin(radian) * radius;
+
+      // Create Stem (Gathered at bottomY)
+      const stem = document.createElement('div');
+      stem.className = 'stem';
+      stem.style.height = radius + 'px';
+      stem.style.left = centerX + 'px';
+      stem.style.transform = `rotate(${angle}deg)`;
+      stemGroup.appendChild(stem);
+
+      // Create Flower
+      const flowerEl = document.createElement('div');
+      flowerEl.className = 'flower-in-bouquet';
+      flowerEl.style.left = (fx - 60) + 'px';
+      flowerEl.style.top = (fy - 60) + 'px';
+      flowerEl.style.transform = `rotate(${angle / 2}deg)`;
+      flowerEl.innerHTML = flower.emoji;
+      wrapper.appendChild(flowerEl);
+    });
+
+    wrapper.appendChild(stemGroup);
+
+    // Add Bow if selected
+    if (selectedBow) {
+      const bowEl = document.createElement('div');
+      bowEl.className = 'ribbon-bow';
+      bowEl.innerHTML = `<div class="bow-left"></div><div class="bow-center"></div><div class="bow-right"></div>`;
+      wrapper.appendChild(bowEl);
     }
 
-    function renderFlowerGrid() {
-      const grid = document.getElementById('flower-grid');
-      grid.innerHTML = flowers.map((f, i) => `
-        <div class="flower-card ${selectedFlowers.includes(i) ? 'selected' : ''}" onclick="toggleFlower(${i})">
-          <div class="flower-emoji">${f.emoji}</div>
-          <h4>${f.name}</h4>
-        </div>
-      `).join('');
-    }
+    // Update Details
+    document.getElementById('preview-type').textContent = selectedBouquetType.toUpperCase();
+    document.getElementById('preview-flowers').textContent = selectedFlowers.map(i => flowers[i].name).join(', ');
+    document.getElementById('preview-wrapping').textContent = selectedWrapping || 'None';
+    document.getElementById('preview-bow').textContent = selectedBow || 'None';
+  }
 
-    function toggleFlower(index) {
-      if (selectedFlowers.includes(index)) {
-        selectedFlowers = selectedFlowers.filter(i => i !== index);
-      } else if (selectedFlowers.length < 10) {
-        selectedFlowers.push(index);
-      }
-      renderFlowerGrid();
-    }
+  function downloadBouquet() {
+    showSuccess('💌 Your love card is ready!');
+  }
 
-    function renderBouquet() {
-      const canvas = document.getElementById('bouquet-canvas');
-      canvas.innerHTML = '';
-      const centerX = 200;
-      const bottomY = 480; 
+  function shareBouquet() {
+    showSuccess('💝 Your love has been sent!');
+  }
 
-      const stemGroup = document.createElement('div');
-      stemGroup.className = 'stem-group';
-
-      selectedFlowers.forEach((flowerIdx, i) => {
-        const flower = flowers[flowerIdx];
-        const total = selectedFlowers.length;
-        
-        // Spread Logic (Fijau)
-        const angleRange = 110;
-        const startAngle = -55;
-        const angle = total > 1 ? startAngle + (i * (angleRange / (total - 1))) : 0;
-        const radian = (angle - 90) * (Math.PI / 180);
-        const radius = 300 + (i % 2 * 30);
-
-        const fx = centerX + Math.cos(radian) * radius;
-        const fy = bottomY + Math.sin(radian) * radius;
-
-        // Stem Logic (Ekai Thau Ma)
-        const stem = document.createElement('div');
-        stem.className = 'stem';
-        stem.style.height = radius + 'px';
-        stem.style.left = centerX + 'px';
-        stem.style.transform = `rotate(${angle}deg)`;
-        stemGroup.appendChild(stem);
-
-        const flowerEl = document.createElement('div');
-        flowerEl.className = 'flower-in-bouquet';
-        flowerEl.style.left = (fx - 50) + 'px';
-        flowerEl.style.top = (fy - 50) + 'px';
-        flowerEl.innerHTML = flower.emoji;
-        canvas.appendChild(flowerEl);
-      });
-
-      canvas.appendChild(stemGroup);
-    }
-
-    async function shareAsPhoto() {
-      const captureArea = document.getElementById('bouquet-capture-area');
-      showToast('Creating high-quality photo... 📸');
-
-      // Create the canvas snapshot
-      const canvas = await html2canvas(captureArea, {
-          backgroundColor: '#ffffff',
-          scale: 3, // High resolution for mobile
-          useCORS: true,
-          logging: false
-      });
-
-      canvas.toBlob(async (blob) => {
-          const file = new File([blob], 'my_custom_bouquet.png', { type: 'image/png' });
-          const caption = document.getElementById('personal-letter').value || 'A custom bouquet just for you! ❤️';
-          
-          // Check if system sharing is available (Works on Android/iOS browsers)
-          if (navigator.canShare && navigator.canShare({ files: [file] })) {
-              try {
-                  await navigator.share({
-                      files: [file],
-                      title: 'My Bouquet for You',
-                      text: caption
-                  });
-              } catch (err) {
-                  // Fallback if sharing is closed
-                  downloadFallback(canvas);
-              }
-          } else {
-              // Desktop Fallback: Download the photo
-              downloadFallback(canvas);
-          }
-      }, 'image/png');
-    }
-
-    function downloadFallback(canvas) {
-        const link = document.createElement('a');
-        link.download = 'My_Bouquet.png';
-        link.href = canvas.toDataURL();
-        link.click();
-        alert("Photo saved to your gallery! Now you can send it manually in any chat. 💝");
-    }
-
-    function showToast(text) {
-      const toast = document.getElementById('status-toast');
-      toast.textContent = text;
-      toast.style.display = 'block';
-      setTimeout(() => toast.style.display = 'none', 3000);
-    }
+  function showSuccess(message) {
+    const msg = document.getElementById('success-msg');
+    document.getElementById('success-text').textContent = message;
+    msg.classList.add('show');
+    setTimeout(() => msg.classList.remove('show'), 3000);
+  }
   </script>
  </body>
 </html>
